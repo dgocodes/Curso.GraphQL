@@ -4,12 +4,12 @@
     {
         IList<Produto> GetAll();
 
-        Produto? GetById(int id);
+        Produto? GetById(Guid id);
 
         Produto Add(Produto produto);
 
-        Produto? Update(int id, Produto produto);
+        Produto? Update(Guid id, Produto produto);
 
-        void Delete(int id);
+        void Delete(Guid id);
     }
 }

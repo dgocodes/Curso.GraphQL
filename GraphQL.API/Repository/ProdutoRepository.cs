@@ -11,9 +11,7 @@
 
         public Produto Add(Produto produto)
         {
-            var maxId = _produtos.Max(o => o.Id);
-
-            produto.Id = maxId + 1;
+            produto.Id = Guid.NewGuid();
             produto.DataCadastro = DateOnly.FromDateTime(DateTime.Now);
             produto.Status = 1;
 
@@ -22,7 +20,7 @@
             return produto;
         }
 
-        public Produto? Update(int id, Produto produto)
+        public Produto? Update(Guid id, Produto produto)
         {
             var produtoUpdate = GetById(id);
 
@@ -40,10 +38,10 @@
         public IList<Produto> GetAll() =>
             _produtos;
 
-        public Produto? GetById(int id) =>
+        public Produto? GetById(Guid id) =>
              _produtos.FirstOrDefault(x => x.Id == id);
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             var produto = GetById(id);
 

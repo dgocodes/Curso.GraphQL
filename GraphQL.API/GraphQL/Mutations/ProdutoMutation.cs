@@ -23,32 +23,32 @@ namespace GraphQL.API.GraphQL.Mutations
                                });
 
             Field<ProdutoType>("updateProduto",
-                   "Atualiza um produto na base de dados",
-                   arguments: new QueryArguments(
-                       new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "id", Description = "Id do Produto" },
-                       new QueryArgument<NonNullGraphType<ProdutoInputType>>
-                       {
-                           Name = "produto",
-                           Description = "Produto input parameter"
-                       }),
-                   resolve: context =>
-                   {
-                       var idProduto = context.GetArgument<int>("id");
-                       var produto = context.GetArgument<Produto>("produto");
+                               "Atualiza um produto na base de dados",
+                               arguments: new QueryArguments(
+                                   new QueryArgument<NonNullGraphType<GuidGraphType>> { Name = "id", Description = "Id do Produto" },
+                                   new QueryArgument<NonNullGraphType<ProdutoInputType>>
+                                   {
+                                       Name = "produto",
+                                       Description = "Produto input parameter"
+                                   }),
+                               resolve: context =>
+                               {
+                                   var idProduto = context.GetArgument<Guid>("id");
+                                   var produto = context.GetArgument<Produto>("produto");
      
-                       return produtoRepository.Update(idProduto, produto);
-                   });
+                                   return produtoRepository.Update(idProduto, produto);
+                               });
 
             Field<ProdutoType>("deleteProduto",
-                  "Deleta um produto na base de dados",
-                  arguments: new QueryArguments(
-                      new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "id", Description = "Id do Produto" }),
-                  resolve: context =>
-                  {
-                      var idProduto = context.GetArgument<int>("id");  
-                      produtoRepository.Delete(idProduto);
-                      return true;
-                  });
+                               "Deleta um produto na base de dados",
+                               arguments: new QueryArguments(
+                                   new QueryArgument<NonNullGraphType<GuidGraphType>> { Name = "id", Description = "Id do Produto" }),
+                               resolve: context =>
+                               {
+                                   var idProduto = context.GetArgument<Guid>("id");  
+                                   produtoRepository.Delete(idProduto);
+                                   return true;
+                               });
         }
     }
 }

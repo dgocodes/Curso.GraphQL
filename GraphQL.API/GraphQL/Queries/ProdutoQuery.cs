@@ -15,12 +15,12 @@ namespace GraphQL.API.GraphQL.Queries
 
             Field<ProdutoType>("produto",
                                "Retorna um curso por ID",
-                               new QueryArguments(new QueryArgument<NonNullGraphType<IntGraphType>>
+                               new QueryArguments(new QueryArgument<NonNullGraphType<GuidGraphType>>
                                {
                                    Name = "id",
                                    Description = "Id do Produto"
                                }),
-                               resolve: context => produtoRepository.GetById(context.GetArgument("id", int.MinValue)));
+                               resolve: context => produtoRepository.GetById(context.GetArgument("id", Guid.NewGuid())));
         }
     }
 }

@@ -11,6 +11,8 @@ namespace GraphQL.API.GraphQL.Types
             Field<StringGraphType>("Nome");
             Field<StringGraphType>("Categoria");
             Field<DecimalGraphType>("Valor");
+
+            Field<ListGraphType<AvaliacaoInputType>>("Avaliacoes");
         }
     }
 }
