@@ -1,4 +1,5 @@
 ﻿using GraphQL.API.GraphQL;
+using GraphQL.API.GraphQL.Mutations;
 using GraphQL.API.GraphQL.Queries;
 using GraphQL.Server;
 
@@ -7,6 +8,7 @@ public static class GraphqlConfig
     public static IServiceCollection AddConfigGraphQL(this IServiceCollection services)
     {
         services.AddScoped<ProdutoQuery>();
+        services.AddScoped<ProdutoMutation>();
         services.AddScoped<AppSchema>();
 
         services.AddGraphQL()

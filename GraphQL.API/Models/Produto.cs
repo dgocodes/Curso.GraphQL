@@ -21,12 +21,12 @@ public class Produto
             {
                 p.Add(new Produto
                 {
-                    Id = id++, 
+                    Id = id++,
                     Nome = $"Produto {i}",
                     Categoria = $"Categora {x}",
                     Valor = rnd.Next(1, 150),
                     Status = 1,
-                    DataCadastro = new DateOnly(2022, 02, 07)
+                    DataCadastro = DateOnly.FromDateTime(DateTime.Now)
                 });
             }
         }
