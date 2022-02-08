@@ -2,12 +2,10 @@
 
 Código fonte criado com base no curso ASP.NET Core: Construindo uma API GraphQL feito no Linkedin Learning.
 
-# Conteúdo 
+# Conteúdo do curso 
 
-Introdução ao GraphQL 
-Queries 
-  - All, ById
-Data mutations 
-  - Add, update, delete
-Dados relacionados (Query and Mutate)
-  - Produto e Avaliações
+- Introdução ao GraphQL 
+- Queries (Listar todos os Produtos, Filtrar por ID)
+- Data mutations (Adicionar, editar, deletar um produto)
+- Dados relacionados (1 Produto - N Avaliações)
+  
